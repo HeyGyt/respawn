@@ -1,42 +1,17 @@
-game["Run Service"].RenderStepped:wait()
-game.Players.LocalPlayer.Character:BreakJoints()
-if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
-game.Players.LocalPlayer.Character.Humanoid:remove()
-game.Players.LocalPlayer.Character.Torso:BreakJoints()
-game.Players.LocalPlayer.Character.Head:BreakJoints()
-game.Players.LocalPlayer.Character.HumanoidRootPart:BreakJoints()
-game.Players.LocalPlayer.Character["Left Arm"]:BreakJoints()
-game.Players.LocalPlayer.Character["Right Arm"]:BreakJoints()
-game.Players.LocalPlayer.Character["Left Leg"]:BreakJoints()
-game.Players.LocalPlayer.Character["Right Leg"]:BreakJoints()
-else
-if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
-game.Players.LocalPlayer.Character.Head:BreakJoints()
-game.Players.LocalPlayer.Character.Humanoid:remove()
-game.Players.LocalPlayer.Character.LeftUpperArm:BreakJoints()
-game.Players.LocalPlayer.Character.LeftLowerArm:BreakJoints()
-game.Players.LocalPlayer.Character.LeftUpperLeg:BreakJoints()
-game.Players.LocalPlayer.Character.LeftLowerLeg:BreakJoints()
-game.Players.LocalPlayer.Character.RightUpperArm:BreakJoints()
-game.Players.LocalPlayer.Character.RightLowerArm:BreakJoints()
-game.Players.LocalPlayer.Character.RightUpperLeg:BreakJoints()
-game.Players.LocalPlayer.Character.RightLowerLeg:BreakJoints()
-game.Players.LocalPlayer.Character.UpperTorso:BreakJoints()
-game.Players.LocalPlayer.Character.LowerTorso:BreakJoints()
-game.Players.LocalPlayer.Character.HumanoidRootPart:BreakJoints()
-end
-end
-local noclip = true
-char = game.Players.LocalPlayer.Character
-while true do
-if noclip == true then
-for _,v in pairs(char:children()) do
-pcall(function()
-if v.className == "Part" then
-v.CanCollide = true
-end
-end)
-end
-end
-game:service("RunService").Stepped:wait()
-end
+game.Players.LocalPlayer.Character.Humanoid.Name = 1
+local l = game.Players.LocalPlayer.Character["1"]:Clone()
+l.Parent = game.Players.LocalPlayer.Character
+l.Name = "Humanoid"
+wait()
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled = true
+wait()
+game.Players.LocalPlayer.Character.Animate.Disabled = false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType = "None"
+wait()
+local prt = Instance.new("Model", workspace);
+Instance.new("Part", prt).Name="Torso";
+Instance.new("Part", prt).Name="Head";
+Instance.new("Humanoid", prt).Name="Humanoid";
+game.Players.LocalPlayer.Character=prt
