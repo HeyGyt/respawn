@@ -1,0 +1,42 @@
+game["Run Service"].RenderStepped:wait()
+game.Players.LocalPlayer.Character:BreakJoints()
+if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+game.Players.LocalPlayer.Character.Humanoid:remove()
+game.Players.LocalPlayer.Character.Torso:BreakJoints()
+game.Players.LocalPlayer.Character.Head:BreakJoints()
+game.Players.LocalPlayer.Character.HumanoidRootPart:BreakJoints()
+game.Players.LocalPlayer.Character["Left Arm"]:BreakJoints()
+game.Players.LocalPlayer.Character["Right Arm"]:BreakJoints()
+game.Players.LocalPlayer.Character["Left Leg"]:BreakJoints()
+game.Players.LocalPlayer.Character["Right Leg"]:BreakJoints()
+else
+if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+game.Players.LocalPlayer.Character.Head:BreakJoints()
+game.Players.LocalPlayer.Character.Humanoid:remove()
+game.Players.LocalPlayer.Character.LeftUpperArm:BreakJoints()
+game.Players.LocalPlayer.Character.LeftLowerArm:BreakJoints()
+game.Players.LocalPlayer.Character.LeftUpperLeg:BreakJoints()
+game.Players.LocalPlayer.Character.LeftLowerLeg:BreakJoints()
+game.Players.LocalPlayer.Character.RightUpperArm:BreakJoints()
+game.Players.LocalPlayer.Character.RightLowerArm:BreakJoints()
+game.Players.LocalPlayer.Character.RightUpperLeg:BreakJoints()
+game.Players.LocalPlayer.Character.RightLowerLeg:BreakJoints()
+game.Players.LocalPlayer.Character.UpperTorso:BreakJoints()
+game.Players.LocalPlayer.Character.LowerTorso:BreakJoints()
+game.Players.LocalPlayer.Character.HumanoidRootPart:BreakJoints()
+end
+end
+local noclip = true
+char = game.Players.LocalPlayer.Character
+while true do
+if noclip == true then
+for _,v in pairs(char:children()) do
+pcall(function()
+if v.className == "Part" then
+v.CanCollide = true
+end
+end)
+end
+end
+game:service("RunService").Stepped:wait()
+end
